@@ -1,0 +1,27 @@
+<%= form_for(tick) do |f| %>
+  <% if tick.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tick.errors.count, "error") %> prohibited this tick from being saved:</h2>
+
+      <ul>
+      <% tick.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :new_tick %>
+    <%= f.check_box :new_tick %>
+  </div>
+
+  <div class="field">
+    <%= f.label :detail %>
+    <%= f.text_field :detail %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

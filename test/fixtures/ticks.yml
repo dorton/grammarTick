@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  new_tick: false
+  detail: MyString
+  user: one
+
+two:
+  new_tick: false
+  detail: MyString
+  user: two

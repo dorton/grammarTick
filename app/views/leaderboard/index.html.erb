@@ -1,0 +1,12 @@
+<h1>Grammar Tick</h1>
+<p>Tick them grammar</p>
+
+
+<% @users.each do |user| %>
+  <h1><%= user.name %></h1>
+  Total Ticks - <%= user.ticks.count %>
+<% end  %>
+
+<% if user_signed_in? %>
+  <%= link_to "New Tick", new_tick_path, class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,23 @@
+
+
+<div class="container">
+  <h1>Leader Board</h1>
+
+  <table class="table table-bordered table-bordered">
+    <tr>
+      <th>Name</th>
+      <th>Total Ticks</th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+      <td><h2><%= user.name %></h2></td>
+      <td><h2><%= user.ticks.count %></h2></td>
+    </tr>
+    <% end  %>
+  </table>
+
+
+  <% if user_signed_in? %>
+    <%= link_to "New Tick", new_tick_path, class: "btn btn-primary" %>
+  <% end %>
+</div>
