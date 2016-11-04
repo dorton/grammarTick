@@ -11,6 +11,7 @@ class TicksController < ApplicationController
   # GET /ticks/1
   # GET /ticks/1.json
   def show
+    @this_user = User.find(params[:id])
   end
 
   # GET /ticks/new

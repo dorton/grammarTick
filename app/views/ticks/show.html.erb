@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Tick for <%= current_user.name %>:</strong>
-  <%= @tick.new_tick %>
-</p>
+<strong>Ticks for <%= @this_user.name %>:</strong>
 
-<p>
-  <strong>Detail:</strong>
-  <%= @tick.detail %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @tick.user %>
-</p>
-
-<%= link_to 'Edit', edit_tick_path(@tick) %> |
-<%= link_to 'Back', ticks_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>The Tick</th>
+      <th>The Time</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @this_user.ticks.each do |tick| %>
+    <tr>
+      <td><%= tick.detail %></td>
+      <td><%= tick.created_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

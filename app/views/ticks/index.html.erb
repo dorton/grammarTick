@@ -11,7 +11,7 @@
     <% @users.each do |user| %>
     <tr>
       <td><h2><%= user.name %></h2></td>
-      <td><h2><%= user.ticks.count %></h2></td>
+      <td><h2><%= link_to user.ticks.count, user_path(user) %></h2></td>
     </tr>
     <% end  %>
   </table>
