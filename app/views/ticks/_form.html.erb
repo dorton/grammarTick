@@ -12,16 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :new_tick %>
-    <%= f.check_box :new_tick %>
-  </div>
-
-  <div class="field">
     <%= f.label :detail %>
     <%= f.text_field :detail %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
