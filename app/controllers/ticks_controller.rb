@@ -11,7 +11,6 @@ class TicksController < ApplicationController
   # GET /ticks/1
   # GET /ticks/1.json
   def show
-    @this_user = User.find(params[:id])
   end
 
   # GET /ticks/new
@@ -68,7 +67,7 @@ class TicksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tick
       @user = current_user
-      @tick = @user.ticks.find(params[:id])
+      @tick = Tick.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
