@@ -1,4 +1,4 @@
-$(document).on('ready page:load', function() {
+$(document).on('turbolinks:load', function() {
   $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 240
       edge: 'left', // Choose the horizontal origin
@@ -6,4 +6,6 @@ $(document).on('ready page:load', function() {
       draggable: true // Choose whether you can drag to open on touch screens
     }
   );
+  $.each($(':checkbox'), function(k, v) { var label = $('label[for="' + this.id + '"]');
+  $(this).insertBefore(label); });
 });
