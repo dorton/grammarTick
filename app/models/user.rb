@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :ticks
 
+  paginates_per 10
+
   def name
     "#{first_name} #{last_name}"
   end

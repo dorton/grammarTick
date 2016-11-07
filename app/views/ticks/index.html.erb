@@ -1,23 +1,25 @@
 
 
 <div class="container">
-  <h1>Leader Board</h1>
+  <h2>Leader Board</h2>
 
-  <table class="table table-bordered table-bordered">
+  <table class="table bordered highlight">
     <tr>
       <th>Name</th>
       <th>Total Ticks</th>
+      <th></th>
     </tr>
     <% @users.each do |user| %>
     <tr>
-      <td><h2><%= user.name %></h2></td>
-      <td><h2><%= link_to user.ticks.count, user_path(user) %></h2></td>
+      <td><%= user.name %></td>
+      <td><%= link_to user.ticks.count, user_path(user) %></td>
+      <td><% if user == current_user %><%= link_to "Create Tick", new_tick_path, class: "btn primary" %><% end %></td>
     </tr>
     <% end  %>
   </table>
 
 
   <% if user_signed_in? %>
-    <%= link_to "New Tick", new_tick_path, class: "btn btn-primary" %>
+
   <% end %>
 </div>

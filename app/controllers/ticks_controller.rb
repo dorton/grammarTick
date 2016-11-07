@@ -4,7 +4,7 @@ class TicksController < ApplicationController
   # GET /ticks
   # GET /ticks.json
   def index
-    @users = User.all
+    @users = User.joins(:ticks).group("users.id").order("count(users.id) DESC")
     @ticks = Tick.all
   end
 

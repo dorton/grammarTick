@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.joins(:ticks).group("users.id").order("count(users.id) DESC").page params[:page]
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @ticks = @user.ticks.page params[:page]
   end
 
   # GET /users/new

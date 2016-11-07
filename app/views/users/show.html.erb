@@ -1,22 +1,22 @@
-<p id="notice"><%= notice %></p>
-
 <strong>Ticks for <%= @user.name %>:</strong>
 
-<table class="table">
+<table class="table bordered highlight">
   <thead>
     <tr>
       <th>The Tick</th>
       <th>The Time</th>
-      <th>Action</th>
+      <% if @user == current_user %><th>Action</th><% end %>
     </tr>
   </thead>
   <tbody>
-  <% @user.ticks.each do |tick| %>
+  <% @ticks.each do |tick| %>
     <tr>
       <td><%= tick.detail %></td>
       <td><%= tick.created_at.strftime('%m/%d/%Y - %I:%M:%S %p') %></td>
-      <td><%= link_to "Edit", edit_tick_path(tick), class: "btn btn-primary" %> <%= link_to 'Delete', tick, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+      <% if @user == current_user %><td><%= link_to "Edit", edit_tick_path(tick), class: "btn btn-primary" %> <%= link_to 'Delete', tick, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td><% end %>
     </tr>
   <% end %>
   </tbody>
 </table>
+
+<%= paginate @ticks %>
