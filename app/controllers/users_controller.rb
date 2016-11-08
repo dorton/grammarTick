@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.joins(:ticks).group("users.id").order("count(users.id) DESC").page params[:page]
+    @users = User.left_outer_joins(:ticks).group("users.id").order("count(users.id) DESC").page params[:page]
   end
 
   # GET /users/1
